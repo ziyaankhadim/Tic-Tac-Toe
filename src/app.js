@@ -28,6 +28,7 @@ const checkWin = () => {
       boxtext[e[2]].innerText === boxtext[e[1]].innerText &&
       boxtext[e[0]].innerText !== ""
     ) {
+      gameover.play();
       isgameover = true;
       console.log(`${boxtext[e[0]].innerText} Won`);
     }
