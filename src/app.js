@@ -29,6 +29,24 @@ const checkWin = () => {
       boxtext[e[0]].innerText !== ""
     ) {
       isgameover = true;
+      console.log(`${boxtext[e[0]].innerText} Won`);
     }
   });
 };
+// Game Logic
+// music.play()
+let boxes = document.getElementsByClassName("box");
+Array.from(boxes).forEach((element) => {
+  let boxtext = element.querySelector(".boxtext");
+  element.addEventListener("click", () => {
+    if (boxtext.innerText === "") {
+      boxtext.innerText = turn;
+      turn = changeTurn();
+      ting.play();
+      checkWin();
+      if (!isgameover) {
+        console.log(`${turn} turn`);
+      }
+    }
+  });
+});
